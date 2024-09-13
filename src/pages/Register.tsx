@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { useMutation } from "react-query";
+import * as apiClient from '../api-client';
 
 export type RegisterFormData = {
     firstName: string,
@@ -17,8 +19,17 @@ const Register = () => {
         formState: { errors },
     } = useForm<RegisterFormData>();
 
+    const mutation = useMutation(apiClient.register, {
+        onSuccess: () => {
+            console.log("Registration Successful!!")
+        },
+        onError: (error: Error) => {
+            console.log(error.message);
+        },
+    });
+
     const onSubmit = handleSubmit((data) => {
-        console.log(data);
+        mutation.mutate(data);
     })
 
     return (
@@ -44,9 +55,9 @@ const Register = () => {
                 Email
                 <input
                     type="email" className="border border-rounded w-full py-1 px-2 font-normal" {...register("email", { required: "This field is required" })}></input>
-                    {errors.email && (
-                        <span className="text-red-500">{errors.email.message}</span>
-                    )}
+                {errors.email && (
+                    <span className="text-red-500">{errors.email.message}</span>
+                )}
             </label>
             <label className="text-gray-700 text-sm font-bold flex-1">
                 Password
@@ -58,9 +69,9 @@ const Register = () => {
                             message: "Password must be at least 6 characters"
                         }
                     })}></input>
-                    {errors.password && (
-                        <span className="text-red-500">{errors.password.message}</span>
-                    )}
+                {errors.password && (
+                    <span className="text-red-500">{errors.password.message}</span>
+                )}
             </label>
             <label className="text-gray-700 text-sm font-bold flex-1">
                 Confirm Password
@@ -74,9 +85,9 @@ const Register = () => {
                             }
                         }
                     })}></input>
-                    {errors.confirmPassword && (
-                        <span className="text-red-500">{errors.confirmPassword.message}</span>
-                    )}
+                {errors.confirmPassword && (
+                    <span className="text-red-500">{errors.confirmPassword.message}</span>
+                )}
             </label>
             <span>
                 <button type="submit"
