@@ -41,14 +41,14 @@ const Register = () => {
             <div className="flex flex-col md:flex-row gap-5">
                 <label className="text-gray-700 text-sm font-bold flex-1">
                     First Name
-                    <input className="border border-rounded w-full py-1 px-2 font-normal" {...register("firstName", { required: "This field is required" })}></input>
+                    <input className="mt-1 bg-gray-200 rounded border border-rounded w-full py-1 px-2 font-normal" {...register("firstName", { required: "This field is required" })}></input>
                     {errors.firstName && (
                         <span className="text-red-500">{errors.firstName.message}</span>
                     )}
                 </label>
                 <label className="text-gray-700 text-sm font-bold flex-1">
                     Last Name
-                    <input className="border border-rounded w-full py-1 px-2 font-normal" {...register("lastName", { required: "This field is required" })}></input>
+                    <input className="mt-1 bg-gray-200 rounded border border-rounded w-full py-1 px-2 font-normal" {...register("lastName", { required: "This field is required" })}></input>
                     {errors.lastName && (
                         <span className="text-red-500">{errors.lastName.message}</span>
                     )}
@@ -57,7 +57,7 @@ const Register = () => {
             <label className="text-gray-700 text-sm font-bold flex-1">
                 Email
                 <input
-                    type="email" className="border border-rounded w-full py-1 px-2 font-normal" {...register("email", { required: "This field is required" })}></input>
+                    type="email" className="mt-1 bg-gray-200 rounded border border-rounded w-full py-1 px-2 font-normal" {...register("email", { required: "This field is required" })}></input>
                 {errors.email && (
                     <span className="text-red-500">{errors.email.message}</span>
                 )}
@@ -65,7 +65,7 @@ const Register = () => {
             <label className="text-gray-700 text-sm font-bold flex-1">
                 Password
                 <input
-                    type="password" className="border border-rounded w-full py-1 px-2 font-normal" {...register("password", {
+                    type="password" className="mt-1 bg-gray-200 rounded border border-rounded w-full py-1 px-2 font-normal" {...register("password", {
                         required: "This field is required",
                         minLength: {
                             value: 6,
@@ -79,7 +79,7 @@ const Register = () => {
             <label className="text-gray-700 text-sm font-bold flex-1">
                 Confirm Password
                 <input
-                    type="password" className="border border-rounded w-full py-1 px-2 font-normal" {...register("confirmPassword", {
+                    type="password" className="mt-1 bg-gray-200 rounded border border-rounded w-full py-1 px-2 font-normal" {...register("confirmPassword", {
                         validate: (val) => {
                             if (!val) {
                                 return "This field is required"
