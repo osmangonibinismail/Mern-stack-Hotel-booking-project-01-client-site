@@ -1,5 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 import HotelDetailsSection from "./DetailsSection";
+import TypeSection from "./TypeSection";
 
 export type HotelFormData = {
     name: string;
@@ -22,6 +23,7 @@ const ManageHotelForm = () => {
         <FormProvider {...formMethods}>
             <form>
                 <HotelDetailsSection />
+                <TypeSection />
             </form>
         </FormProvider>
     );
