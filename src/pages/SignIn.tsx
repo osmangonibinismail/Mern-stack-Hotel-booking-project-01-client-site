@@ -56,8 +56,8 @@ const SignIn = () => {
                 )}
             </label>
             <span className="flex items-center justify-between">
-                <span className="text-sm">
-                    Not Registered? Please <Link className="underline" to="/register">Create an account here</Link>
+                <span className="text-md">
+                Don't have an account? <Link className="underline text-sky-700 font-semibold" to="/register">Create an account here</Link>
                 </span>
                 <button type="submit"
                     className="bg-sky-700 text-white p-2 font-semibold rounded w-24 hover:bg-sky-600 text-xl">

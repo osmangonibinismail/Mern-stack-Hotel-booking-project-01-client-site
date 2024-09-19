@@ -97,8 +97,8 @@ const Register = () => {
                 )}
             </label>
             <span className="flex items-center justify-between">
-            <span className="text-sm">
-                    Already have an account? Please <Link className="underline" to="/sign-in">Sign in</Link>
+            <span className="text-md">
+                    Already have an account? <Link className="underline font-semibold text-sky-700" to="/sign-in">Sign in</Link>
                 </span>
                 <button type="submit"
                     className="bg-sky-700 text-white p-2 font-semibold rounded hover:bg-sky-600 text-xl">
