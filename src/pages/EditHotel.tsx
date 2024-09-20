@@ -10,6 +10,7 @@ const EditHotel = () => {
         enabled: !!hotelId,
     }
     );
+    
 
     return <ManageHotelForm hotel={hotel}/>
 };
