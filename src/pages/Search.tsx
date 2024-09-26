@@ -2,6 +2,7 @@ import { useQuery } from "react-query";
 import { useSearchContext } from "../contexts/SearchContexts";
 import * as apiClient from "../api-client";
 import { useState } from "react";
+import SearchResultsCard from "../components/SearchResultsCard";
 
 const Search = () => {
     const search = useSearchContext();
