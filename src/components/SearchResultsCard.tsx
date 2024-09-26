@@ -14,7 +14,7 @@ const SearchResultsCard = ({ hotel }: Props) => {
                     src={hotel.imageUrls[0]}
                     className="w-full h-full object-cover object-center" />
             </div>
-            <div className="grid grid-rows-[1fr_2fr_1fr]">
+            <div className="grid grid-rows-1">
                 <div>
                     <div className="flex items-center">
                         <span className="flex">
