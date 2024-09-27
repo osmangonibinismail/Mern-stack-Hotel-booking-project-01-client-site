@@ -8,6 +8,7 @@ import MyHotels from "./pages/MyHotel";
 import EditHotel from "./pages/EditHotel";
 import SearchBar from "./components/SearchBar";
 import Search from "./pages/Search";
+import Detail from "./pages/Detail";
 
 const App = () => {
   const { isLoggedIn } = useAppContext();
@@ -29,6 +30,14 @@ const App = () => {
           element={
             <Layout>
               <Search />
+            </Layout>
+          }
+        />
+        <Route
+          path="/detail/:hotelId"
+          element={
+            <Layout>
+              <Detail />
             </Layout>
           }
         />
