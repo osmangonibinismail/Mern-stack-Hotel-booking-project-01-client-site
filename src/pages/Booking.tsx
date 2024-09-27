@@ -1,11 +1,11 @@
 import { useQuery } from "react-query";
 import * as apiClient from "../api-client";
-import BookingForm from "../forms/BookingForm/BookingForm";
 import { useSearchContext } from "../contexts/SearchContexts";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { useAppContext } from "../contexts/AppContext";
+import BookingForm from "../forms/BookingForm/BookingForm";
 import BookingDetailsSummary from "../components/BookingDetailsSummary";
 
 const Booking = () => {
