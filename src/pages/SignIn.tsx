@@ -63,7 +63,7 @@ const SignIn = () => {
                 Don't have an account? <Link className="underline text-sky-700 font-semibold" to="/register">Create an account here</Link>
                 </span>
                 <button type="submit"
-                    className="bg-sky-700 text-white p-2 font-semibold rounded w-24 hover:bg-sky-600 text-xl">
+                    className="bg-sky-700 text-white p-2 font-semibold w-24 hover:bg-sky-600 text-xl">
                     Log in
                 </button>
             </span>

@@ -101,7 +101,7 @@ const Register = () => {
                     Already have an account? <Link className="underline font-semibold text-sky-700" to="/sign-in">Sign in</Link>
                 </span>
                 <button type="submit"
-                    className="bg-sky-700 text-white p-2 font-semibold rounded hover:bg-sky-600 text-xl">
+                    className="bg-sky-700 text-white p-2 font-semibold hover:bg-sky-600 text-xl">
                     Create Account
                 </button>
             </span>
