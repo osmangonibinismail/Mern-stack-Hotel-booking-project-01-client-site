@@ -5,7 +5,7 @@ import {
 } from "../../../../backend/src/shared/types";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { StripeCardElement } from "@stripe/stripe-js";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMutation } from "react-query";
 import * as apiClient from "../../api-client";
 import { useSearchContext } from "../../contexts/SearchContexts";
@@ -32,6 +32,7 @@ export type BookingFormData = {
 const BookingForm = ({ currentUser, paymentIntent }: Props) => {
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   const search = useSearchContext();
   const { hotelId } = useParams();
@@ -43,6 +44,7 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
     {
       onSuccess: () => {
         showToast({ message: "Booking Saved!", type: "SUCCESS" });
+        navigate("/");
       },
       onError: () => {
         showToast({ message: "Error saving booking", type: "ERROR" });
@@ -125,7 +127,7 @@ const BookingForm = ({ currentUser, paymentIntent }: Props) => {
 
         <div className="bg-sky-200 p-4 rounded-md">
           <div className="font-semibold text-lg">
-            Total Cost:  ${paymentIntent.totalCost.toFixed(2)}
+            Total Cost: ${paymentIntent.totalCost.toFixed(2)}
           </div>
           <div className="text-xs">Includes taxes and charges</div>
         </div>
