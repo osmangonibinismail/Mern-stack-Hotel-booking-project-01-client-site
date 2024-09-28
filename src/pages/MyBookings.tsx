@@ -25,7 +25,7 @@ const MyBookings = () => {
           <div className="flex flex-col gap-4 overflow-y-auto max-h-[300px]">
             <div className="text-2xl font-bold">
               {hotel.name}
-              <div className="text-xs font-normal">
+              <div className="text-sm font-normal">
                 {hotel.city}, {hotel.country}
               </div>
             </div>
@@ -34,8 +34,7 @@ const MyBookings = () => {
                 <div>
                   <span className="font-bold mr-2">Dates: </span>
                   <span>
-                    {new Date(booking.checkIn).toDateString()} -
-                    {new Date(booking.checkOut).toDateString()}
+                    {new Date(booking.checkIn).toDateString()} to {new Date(booking.checkOut).toDateString()}
                   </span>
                 </div>
                 <div>
