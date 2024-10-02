@@ -50,44 +50,12 @@ export const signIn = async (formData: SignInFormData) => {
   if (!response.ok) {
     throw new Error(body.message);
   }
-
-  // লগ ইন করার পর auth_token কুকি চেক করুন
-  const token = document.cookie.split('; ').find(row => row.startsWith('auth_token='));
-  if (!token) {
-    console.error('Auth token not found in cookies');
-  } else {
-    console.log('Auth token:', token.split('=')[1]);
-  }
-
   return body;
 };
 
-
-// export const signIn = async (formData: SignInFormData) => {
-//   const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
-//     method: "POST",
-//     credentials: "include",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(formData),
-//   });
-
-//   const body = await response.json();
-//   if (!response.ok) {
-//     throw new Error(body.message);
-//   }
-//   return body;
-// };
-
 export const validateToken = async () => {
-  const token = document.cookie.split('; ').find(row => row.startsWith('auth_token='));
-  
   const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
     credentials: "include",
-    headers: {
-      'Authorization': `Bearer ${token ? token.split('=')[1] : ''}`, // টোকেন পাঠানো
-    },
   });
 
   if (!response.ok) {
@@ -96,18 +64,6 @@ export const validateToken = async () => {
 
   return response.json();
 };
-
-// export const validateToken = async () => {
-//   const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
-//     credentials: "include",
-//   });
-
-//   if (!response.ok) {
-//     throw new Error("Token invalid");
-//   }
-
-//   return response.json();
-// };
 
 export const signOut = async () => {
   const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
