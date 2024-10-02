@@ -81,8 +81,13 @@ export const signIn = async (formData: SignInFormData) => {
 // };
 
 export const validateToken = async () => {
+  const token = document.cookie.split('; ').find(row => row.startsWith('auth_token='));
+  
   const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
     credentials: "include",
+    headers: {
+      'Authorization': `Bearer ${token ? token.split('=')[1] : ''}`, // টোকেন পাঠানো
+    },
   });
 
   if (!response.ok) {
@@ -91,6 +96,18 @@ export const validateToken = async () => {
 
   return response.json();
 };
+
+// export const validateToken = async () => {
+//   const response = await fetch(`${API_BASE_URL}/api/auth/validate-token`, {
+//     credentials: "include",
+//   });
+
+//   if (!response.ok) {
+//     throw new Error("Token invalid");
+//   }
+
+//   return response.json();
+// };
 
 export const signOut = async () => {
   const response = await fetch(`${API_BASE_URL}/api/auth/logout`, {
